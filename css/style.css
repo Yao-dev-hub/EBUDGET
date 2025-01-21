@@ -1,0 +1,125 @@
+.millieu {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.hover-zoom {
+    transition: all .4s ease;
+}
+
+.hover-zoom:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    transform: translateY(-5px);
+}
+
+.bg-image {
+    height: 92vh;
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/images/signup.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    color: #ffff;
+}
+
+.bg-image-login {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.63), rgba(0, 0, 0, .63)), url(/images/login.jpeg);
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #ffff;
+}
+
+.logo {
+    border: 1px solid #00000000;
+    border-radius: 100%;
+    box-shadow: 2px 2px 3px blue;
+    border-top-color: blue;
+    border-left-color: transparent;
+    border-right-color: blue;
+    border-bottom-color: blue;
+}
+
+@media (max-width: 768px) {
+    .bg-image {
+        display: none;
+    }
+
+    .left-margin {
+        margin-left: -8px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+    .lien {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 1px;
+        height: 90px;
+    }
+
+    .nav-div {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+}
+
+.color-gay {
+    color: rgba(0, 0, 0, 0.402);
+}
+
+.emoji {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-main {
+    background-color: rgba(219, 219, 219, 0.265);
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.div-depenses {
+    box-shadow: 0 0 1px rgba(130, 130, 130, 0.525);
+}
+
+
+@media (max-width:992px) {
+    .bg-image {
+        display: none;
+    }
+
+    .left-margin {
+        margin-left: -8px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+    .lien {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 1px;
+        height: 90px;
+    }
+
+    .nav-div {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+}
