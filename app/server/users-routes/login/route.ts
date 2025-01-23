@@ -22,9 +22,12 @@ export const POST = async (request: Request) => {
         } else {
             return NextResponse.json({ message: "Une erreur est survenue, reesayez plus tard" })
         }
-    } catch (error) {
-        const errorMessage = error.message
-        console.log(errorMessage)
+    } catch (error: unknown) {
+        let errorMessage = ""
+        if (error instanceof Error) {
+            errorMessage = error.message;
+        }
+
         return NextResponse.json(
             errorMessage === "Firebase: Error (auth/invalid-credential)." ? { message: "Identifiant incorrect" }
                 : { message: "Une erreur est survenue" }
