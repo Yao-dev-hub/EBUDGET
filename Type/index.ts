@@ -33,8 +33,8 @@ export const MoneyOptions: Intl.NumberFormatOptions = {
 }
 
 export type ParamesID = {
-    params: {
-        uid?: string,
-        budgetId?: string,
-    }
+    params: Promise<{
+        uid?: string;
+        budgetId?: string
+    }>
 } 

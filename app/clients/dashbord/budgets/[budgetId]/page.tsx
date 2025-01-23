@@ -10,7 +10,8 @@ import LoadingCard from '../../LoadingCard'
 const Page = ({ params }: ParamesID) => {
 
     const getParams = async () => {
-        return await params.budgetId
+        const { budgetId } = await params
+        return budgetId
     }
 
     const user = JSON.parse(localStorage.getItem("userInfo")!)
