@@ -31,7 +31,7 @@ function FormDepense() {
                 </div>
                 <div className="col-md-12">
                     <div className="form-floating mb-3">
-                        <input type="number" min={1} onChange={(e) => setMontant(e.target.value)} className="form-control" id="montant" placeholder="Entrez votre prenom" required />
+                        <input type="number" min={1} onChange={(e) => setMontant(Number(e.target.value))} className="form-control" id="montant" placeholder="Entrez votre prenom" required />
                         <label htmlFor="montant">montant</label>
                     </div>
                 </div>
