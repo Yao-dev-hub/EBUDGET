@@ -7,7 +7,7 @@ function FormDepense() {
     const [load, setLoad] = useState(false)
     const [message, setMessage] = useState("")
 
-    const submitForm = async (e) => {
+    const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setLoad(true)
         setMessage("")

@@ -1,6 +1,7 @@
 "use client"
 
 import NavBar from "@/components/navBar";
+import { SnackbarProvider } from 'notistack'
 
 
 function layout({
@@ -9,16 +10,15 @@ function layout({
     children: React.ReactNode;
 }>) {
 
-    const user = localStorage.getItem("userInfo")
-    if (!user) {
+    if (!localStorage.getItem("userInfo")) {
         document.location.href = "/clients/users-pages/login"
         return;
     } else {
         return (
-            <>
+            <SnackbarProvider>
                 <NavBar />
                 {children}
-            </>
+            </SnackbarProvider>
         )
     }
 

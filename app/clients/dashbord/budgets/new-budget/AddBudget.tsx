@@ -1,26 +1,31 @@
 'use client'
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { GiTakeMyMoney } from "react-icons/gi"
 import EmojiPicker from 'emoji-picker-react';
-import { BudgetType } from '@/Type';
+import { BudgetType, ListBudgetType, UsersType } from '@/Type';
+import { useSnackbar } from 'notistack';
 
-function AddBudget() {
+
+
+function AddBudget({ uid, BudgetListFunc }: ListBudgetType) {
 
     const [show, setShow] = useState(false);
 
+    const { enqueueSnackbar } = useSnackbar()
+
     const handleCloseModal = () => {
         setTitre("")
-        setFond("0")
+        setDepense("0")
         setEmojiSelect("")
         setShowEmoji(false)
         setShow(false)
+        setLoad(false)
     }
     const handleShowMoadl = () => setShow(true);
 
     const [titre, setTitre] = useState("")
-    const [fond, setFond] = useState("")
+    const [depense, setDepense] = useState("")
     const [message, setMessage] = useState("")
     const [load, setLoad] = useState(false)
 
@@ -38,27 +43,35 @@ function AddBudget() {
         e.preventDefault()
         try {
 
-            setMessage("")
-            setLoad(true)
+            if (uid && uid !== undefined) {
+                setMessage("")
+                setLoad(true)
 
-            const data: BudgetType = {
-                titre, fond, emoji: emojiSelect
-            }
-            const req = await fetch("/server/budget-routes/new-budget", {
-                headers: { "Content-type": "application/json" },
-                method: "POST",
-                body: JSON.stringify(data)
-            })
+                const data: BudgetType = {
+                    titre, fond: Number(depense), emoji: emojiSelect, uid: uid
+                }
 
-            const res = await req.json()
-            if (res && res.message === "ok") {
-            } else {
-                setMessage(res.message)
+                const req = await fetch("/server/budget-routes/new-budget", {
+                    headers: { "Content-type": "application/json" },
+                    method: "POST",
+                    body: JSON.stringify(data)
+                })
+
+                const res = await req.json()
+                if (res && res.message === "ok") {
+                    BudgetListFunc!(res.data)
+
+                    handleCloseModal()
+                    enqueueSnackbar("Budget créé avec succès", { variant: "success" })
+                } else {
+                    setMessage(res.message)
+                }
+                setLoad(false)
             }
-            setLoad(false)
 
         } catch (error) {
             console.log(error)
+            setLoad(false)
         }
     }
 
@@ -82,7 +95,7 @@ function AddBudget() {
                     <Modal.Title className='h4'>Ajouter un budget</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="container">
+                    <div className={`container ${showEmoji && "modal-w"}`}>
                         <form className="row" onSubmit={(e) => submitForm(e)}>
                             <div className="col-md-12 mb-3">
                                 <div className="form-floating">
@@ -92,7 +105,7 @@ function AddBudget() {
                             </div>
                             <div className="col-md-12 mb-3">
                                 <div className="form-floating">
-                                    <input type="number" min={1} onChange={(e) => setFond(e.target.value)} className="form-control" placeholder="Saisir le montant total à depensé" required />
+                                    <input type="number" min={1} onChange={(e) => setDepense(e.target.value)} className="form-control" placeholder="Saisir le montant total à depensé" required />
                                     <label htmlFor="f">Montant total à dépensé</label>
                                 </div>
                             </div>
@@ -102,11 +115,18 @@ function AddBudget() {
                                         {emojiSelect || "Selection un emoji 👍"}
                                     </button>
                                 ) : (
-                                    <EmojiPicker onEmojiClick={handlerEmoji} className='form-control' height={300} />
+                                    <EmojiPicker onEmojiClick={handlerEmoji} className='form-control' />
                                 )}
                             </div>
                             <div className="col-md-12">
-                                <button type='submit' className='btn btn-warning form-control'>Ajouter</button>
+                                {!load ? <button type='submit' id='submiBtn' className='btn btn-warning form-control'>Ajouter</button>
+                                    :
+                                    <button className="btn btn-outline-warning form-control" type="button" disabled>
+                                        <span className="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                                        <span role="status">Traitement...</span>
+                                    </button>
+                                }
+
                             </div>
 
                         </form>

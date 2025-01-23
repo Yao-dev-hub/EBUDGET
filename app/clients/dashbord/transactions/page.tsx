@@ -1,10 +1,15 @@
+"use client"
 import React from 'react'
 import DetailsTransactiion from './DetailsTransactiion'
+import TransacForm from './TransacForm'
 
 function page() {
     return (
-        <div className='container mt-5'>
+        <div className='container mt-5 '>
             <div className="row">
+                <div className="col-md-12">
+                    <TransacForm />
+                </div>
                 <div className="col-md-12">
                     <DetailsTransactiion />
                 </div>

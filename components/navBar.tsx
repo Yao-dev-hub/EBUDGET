@@ -1,6 +1,6 @@
 "use client"
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -12,14 +12,11 @@ import { UsersType } from '@/Type';
 function NavBar() {
 
     const path = document.location.pathname
-
-    const user = localStorage.getItem("userInfo")
+    const user: UsersType = JSON.parse(localStorage.getItem("userInfo")!)
     if (!user) {
         document.location.href = "/clients/users-pages/login"
         return;
     }
-
-
 
     if (path !== "/clients/users-pages/sign-up" && path !== "/clients/users-pages/login") {
 
@@ -38,25 +35,13 @@ function NavBar() {
 
                             <Dropdown className='d-flex justify-content-center justify-content-md-start'>
                                 {
-                                    user ? (
-                                        <>
-                                            <Dropdown.Toggle variant="light" id="dropdown-basic" className='d-flex justify-content-center '  >
-                                                <FaCircleUser className='fs-5' /><span className='ms-2 '>Nom</span>
-                                            </Dropdown.Toggle>
-                                            <Dropdown.Menu className='form-control mb-md-2'>
-                                                <Dropdown.Item href="#/action-1" className='d-flex justify-content-center '>Se Deconnecter</Dropdown.Item>
-                                            </Dropdown.Menu>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Dropdown.Toggle variant="success" id="dropdown-basic" className='d-flex justify-content-center justify-content-md-start'>
-                                                <FaCircleUser />
-                                            </Dropdown.Toggle>
-                                            <Dropdown.Menu className='d-flex justify-content-center justify-content-md-start'>
-                                                <Dropdown.Item href="#/action-1">Se Connecter</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-2">S'inscrire</Dropdown.Item>
-                                            </Dropdown.Menu>
-                                        </>
+                                    user && user !== undefined && (
+                                        <div>
+                                            <img src={user.photo !== "" ? user.photo : "/img/user.png"} alt="user" style={{ width: "30px", height: "30px", borderRadius: "50%" }} />
+                                            <NavDropdown title={user.nom} id="basic-nav-dropdown">
+                                                <NavDropdown.Item href="#action/3.1">Se deconnecter</NavDropdown.Item>
+                                            </NavDropdown>
+                                        </div>
                                     )
                                 }
                             </Dropdown>
@@ -71,13 +56,3 @@ function NavBar() {
 }
 
 export default NavBar
-
-{/* <div className="dropdown">
-                            <button className="btn btn-outline-primary rounded-circle dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown button
-                            </button>
-                            <ul className="dropdown-menu">
-                                <li><Link className="dropdown-item" href="/dashbord/account">Mon compte</Link></li>
-                                <li><a className="dropdown-item" href="#a" onClick={() => deconnect()}>Se deconnecter</a></li>
-                            </ul>
-                        </div> */}

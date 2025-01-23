@@ -17,11 +17,13 @@
     "firebase": "^11.1.0",
     "mongoose": "^8.9.5",
     "next": "15.1.4",
+    "notistack": "^3.0.2",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.7",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
-    "react-progressbar": "^15.4.1"
+    "react-progressbar": "^15.4.1",
+    "recharts": "^2.15.0"
   },
   "devDependencies": {
     "@types/node": "^20",
