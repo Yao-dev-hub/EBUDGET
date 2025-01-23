@@ -18,10 +18,10 @@ export const SsoConnect = async () => {
 }
 
 //recaptcha verification
-export const GrecaptchaFunc = async (data: () => Promise<void>) => {
-    grecaptcha.ready(() => {
-        grecaptcha.execute('6Lf1pbwqAAAAAD4D9dvpJyqlGH9kAO_jntaPQ3-m', { action: 'submit' }).then(() => {
-            data
-        })
-    })
-}
+// export const GrecaptchaFunc = async (data: () => Promise<void>) => {
+//     grecaptcha.ready(() => {
+//         grecaptcha.execute('6Lf1pbwqAAAAAD4D9dvpJyqlGH9kAO_jntaPQ3-m', { action: 'submit' }).then(() => {
+//             data
+//         })
+//     })
+// }
