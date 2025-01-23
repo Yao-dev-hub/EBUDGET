@@ -1,12 +1,13 @@
 'use client'
 import { BudgetType, ListBudgetType, MoneyOptions } from "@/Type";
-import ProgressBar from "@ramonak/react-progress-bar";
+import ProgressBar from 'react-bootstrap/ProgressBar'
 import Link from "next/link";
 
 function CardBudgets({ item }: ListBudgetType) {
 
     const reste = Number(item?.fond) - Number(item?.depense)
     const pourcentage = (Number(item?.depense) * 100) / Number(item?.fond)
+
 
     return (
 
@@ -39,8 +40,8 @@ function CardBudgets({ item }: ListBudgetType) {
                     }</p>
                 </div>
                 {/* Troisième Container */}
-                <ProgressBar completed={!Number.isNaN(pourcentage) ? pourcentage : 50} bgColor={pourcentage > 99 ? "#dc3545"
-                    : pourcentage > 69 ? "#ffc107" : "#212529"} />
+                <ProgressBar now={!Number.isNaN(pourcentage) ? pourcentage : 50} label={`${pourcentage}%`} variant={pourcentage > 99 ? "danger"
+                    : pourcentage > 69 ? "warning" : "dark"} />
             </div>
         </Link>
     )
