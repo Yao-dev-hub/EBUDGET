@@ -2,6 +2,7 @@
 
 import NavBar from "@/components/navBar";
 import { SnackbarProvider } from 'notistack'
+import { useEffect, useState } from "react";
 
 
 function layout({
@@ -9,17 +10,29 @@ function layout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem("userInfo")!))
+    const [load, setLoad] = useState(true)
 
-    if (!localStorage.getItem("userInfo")) {
-        document.location.href = "/clients/users-pages/login"
-        return;
-    } else {
-        return (
-            <SnackbarProvider>
-                <NavBar />
-                {children}
-            </SnackbarProvider>
-        )
+    useEffect(() => {
+        setTimeout(() => {
+            setUser(JSON.parse(localStorage.getItem("userInfo")!))
+            setLoad(false)
+        }, 100)
+    }, [])
+
+    if (!load) {
+
+        if (user && user !== undefined) {
+            return (
+                <SnackbarProvider>
+                    <NavBar />
+                    {children}
+                </SnackbarProvider>
+            )
+        } else {
+            document.location.href = "/clients/users-pages/login"
+            return;
+        }
     }
 
 }

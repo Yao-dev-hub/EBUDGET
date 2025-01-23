@@ -1,5 +1,4 @@
 "use client"
-import React from 'react'
 import DetailsTransactiion from './DetailsTransactiion'
 import TransacForm from './TransacForm'
 
