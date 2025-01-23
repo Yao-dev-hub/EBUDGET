@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { GiTakeMyMoney } from "react-icons/gi"
 import EmojiPicker from 'emoji-picker-react';
-import { BudgetType, ListBudgetType, UsersType } from '@/Type';
+import { BudgetType, ListBudgetType } from '@/Type';
 import { useSnackbar } from 'notistack';
 
 
@@ -47,8 +47,8 @@ function AddBudget({ uid, BudgetListFunc }: ListBudgetType) {
                 setMessage("")
                 setLoad(true)
 
-                const data: BudgetType = {
-                    titre, fond: Number(depense), emoji: emojiSelect, uid: uid
+                const data = {
+                    titre, fond: Number(depense), emoji: emojiSelect, uid
                 }
 
                 const req = await fetch("/server/budget-routes/new-budget", {

@@ -5,7 +5,8 @@ export type UsersType = {
     email?: string,
     password?: string,
     tel?: string,
-    photo?: string
+    photo?: string,
+    typeConnection?: string
 }
 
 export type BudgetType = {
@@ -22,7 +23,7 @@ export type ListBudgetType = {
     reste?: number,
     pourcentage?: number,
     nbreTransaction?: number,
-    uid?: UsersType,
+    uid?: string,
     BudgetListFunc?: (e: ListBudgetType) => void,
     item?: ListBudgetType
 }

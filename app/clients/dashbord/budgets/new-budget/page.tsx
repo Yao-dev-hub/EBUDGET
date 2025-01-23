@@ -8,9 +8,11 @@ import LoadingCard from '../../LoadingCard'
 
 function page() {
 
-    const user = JSON.parse(localStorage.getItem("userInfo")!)
+    const userInfo = localStorage.getItem("userInfo") || null
+    const [uid, setUid] = useState("")
     const [budget, setItem] = useState<ListBudgetType[]>([])
     const [load, setLoad] = useState(true)
+
 
     const BudgetListFunc = (e: ListBudgetType) => {
         console.log(e)
@@ -18,17 +20,25 @@ function page() {
     }
 
     const GetBuget = async () => {
-        const req = await fetch(`/server/budget-routes/get-budget/all-budget/${user?.uid}`, {
-            headers: { "Content-type": "application/json" },
-            method: "GET"
-        })
-        const res = await req.json()
-        if (res && res !== undefined) {
-            setItem(res)
+        if (userInfo && userInfo !== undefined) {
+            const user = JSON.parse(userInfo)
+            try {
+                const req = await fetch(`/server/budget-routes/get-budget/all-budget/${user?.uid}`, {
+                    headers: { "Content-type": "application/json" },
+                    method: "GET"
+                })
+                const res = await req.json()
+                if (res && res !== undefined) {
+                    setItem(res)
+                }
+                setTimeout(() => {
+                    setLoad(false)
+                    setUid(user?.uid)
+                }, 2000);
+            } catch (error) {
+                console.log(error)
+            }
         }
-        setTimeout(() => {
-            setLoad(false)
-        }, 2000);
 
     }
 
@@ -55,7 +65,7 @@ function page() {
                 <>
                     <div className="row">
                         <div className="col-md-3 my-1">
-                            <AddBudget uid={user.uid} BudgetListFunc={BudgetListFunc} />
+                            <AddBudget uid={uid} BudgetListFunc={BudgetListFunc} />
                         </div>
                     </div >
 
