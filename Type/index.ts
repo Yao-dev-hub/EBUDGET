@@ -13,6 +13,8 @@ export type BudgetType = {
     id?: string, titre: string, fond: number, emoji: string, uid: UsersType
 }
 
+//salut
+
 
 export type ListBudgetType = {
     _id?: string,
