@@ -16,6 +16,7 @@ const Page = ({ params }: ParamesID) => {
 
     const [user, setUser] = useState<UsersType>({})
     const [budget, setItem] = useState<ListBudgetType>({})
+    // const [id_budget,]
     const [load, setLoad] = useState(true)
 
     const GetBuget = async () => {
@@ -51,7 +52,7 @@ const Page = ({ params }: ParamesID) => {
                     }
                     <div className="card my-3">
                         <div className="card-body">
-                            <FormDepense />
+                            <FormDepense uid={user.uid} budgetI />
                         </div>
                     </div>
                 </div>

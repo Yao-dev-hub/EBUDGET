@@ -13,7 +13,6 @@ export type BudgetType = {
     id?: string, titre: string, fond: number, emoji: string, uid: UsersType
 }
 
-
 export type ListBudgetType = {
     _id?: string,
     titre?: string,
@@ -38,4 +37,11 @@ export type ParamesID = {
         uid?: string;
         budgetId?: string
     }>
-} 
+}
+
+export type DepenseType = {
+    titre?: string,
+    montant?: string,
+    uid?: string,
+    id?: string,
+}

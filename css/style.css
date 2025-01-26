@@ -6,6 +6,14 @@
 }
 
 
+.view-mobile {
+    text-decoration: none;
+    background-color: orange;
+    padding: 5px;
+    border-radius: 9px;
+    color: white
+}
+
 .hover-zoom {
     transition: all .4s ease;
 }
@@ -16,8 +24,8 @@
 }
 
 .bg-image {
-    height: 92vh;
-    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/images/signup.jpg);
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, .7)), url(/images/signup.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,7 +36,7 @@
 
 .bg-image-login {
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.63), rgba(0, 0, 0, .63)), url(/images/login.jpeg);
+    background: linear-gradient(rgba(0, 0, 0, 0.63), rgba(0, 0, 0, .63)), url(/images/user-connected.jpg);
     border-top-right-radius: 80px;
     border-bottom-right-radius: 80px;
     background-position: center;
@@ -40,6 +48,8 @@
     color: #ffff;
 }
 
+
+
 .logo {
     border: 1px solid #00000000;
     border-radius: 100%;
@@ -50,30 +60,15 @@
     border-bottom-color: blue;
 }
 
-@media (max-width: 768px) {
-    .bg-image {
-        display: none;
-    }
-
-    .left-margin {
-        margin-left: -8px;
-        margin-top: 2px;
-        margin-bottom: 2px;
-    }
-
-    .lien {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        padding: 1px;
-        height: 90px;
-    }
-
-    .nav-div {
-        margin-top: 10px;
-        margin-bottom: 5px;
-    }
+#container-home {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url(/images/afrique-du-sud-monnaie.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
 
 .color-gay {
     color: rgba(0, 0, 0, 0.402);
@@ -104,6 +99,9 @@
     overflow-y: auto;
 }
 
+#Grand_titre {
+    font-size: 50px;
+}
 
 @media (max-width:992px) {
     .bg-image {
@@ -127,5 +125,83 @@
     .nav-div {
         margin-top: 10px;
         margin-bottom: 5px;
+    }
+
+    .view-mobile {
+        background: #00000000;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        margin: 2px auto;
+    }
+
+    #nom-user {
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width:768px) {
+    #Grand_titre {
+        font-size: 40px;
+    }
+
+    .view-mobile {
+        background: #00000000;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        margin: 2px auto;
+    }
+
+    #nom-user {
+        text-align: center;
+        margin: 0 auto;
+    }
+    
+    .bg-mobile-login{
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.63), rgba(0, 0, 0, .63)), url(/images/user-connected.jpg);
+        border-top-right-radius: 80px;
+        border-bottom-right-radius: 80px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .bg-image {
+        display: none;
+    }
+
+    .left-margin {
+        margin-left: -8px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+    .lien {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 1px;
+        height: 90px;
+    }
+
+    .nav-div {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    .view-mobile {
+        background: #00000000;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        margin: 2px auto;
+    }
+
+    #nom-user {
+        text-align: center;
+        margin: 0 auto;
     }
 }

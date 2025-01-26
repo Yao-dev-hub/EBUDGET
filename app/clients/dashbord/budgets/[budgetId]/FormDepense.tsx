@@ -1,25 +1,44 @@
 "use client"
-import { useState } from 'react'
+import { ParamesID, UsersType } from '@/Type'
+import { useEffect, useState } from 'react'
+import Spinner from 'react-bootstrap/Spinner'
 
-function FormDepense() {
+function FormDepense({ params }: ParamesID) {
 
     const [montant, setMontant] = useState(0)
     const [titre, setTitre] = useState("")
     const [load, setLoad] = useState(false)
     const [message, setMessage] = useState("")
+    const [user, setUser] = useState(localStorage.getItem("userInfo")!)
+
 
     const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setLoad(true)
         setMessage("")
 
+        //const user = JSON.parse(user)
+        // const budgetId = await getParams()
         const data = { montant, titre }
+        console.log(data)
         try {
-            const req = await fetch("/")
-        } catch (error) {
+            const req = await fetch(`/server/depense-routes/new-depense`, {
+                headers: { "Content-type": "application/json" },
+                method: "POST",
+                body: JSON.stringify(data)
+            })
 
+            const res = await req.json()
+            console.log(res)
+            return
+
+        } catch (error) {
+            console.log(error);
+            setMessage("Erreur lors de la soumission des données")
         }
     }
+
+
 
     return (
         <div>
@@ -36,8 +55,9 @@ function FormDepense() {
                         <label htmlFor="montant">montant</label>
                     </div>
                 </div>
+
                 <div className="col-md-12">
-                    <button className='btn btn-dark p-2 rounded-5 form-control'>Ajouter une dépense</button>
+                    <button className='btn btn-dark p-2 rounded-5 form-control'>Ajoutez une depense</button>
                 </div>
             </form>
         </div>

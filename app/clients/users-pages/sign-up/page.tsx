@@ -8,9 +8,9 @@ function Page() {
         <>
             <main className='millieu container-fluid'>
                 <div className="row d-flex justify-content-center align-items-center">
-                    <div className="col-md-6 bg-image bg-info d-none d-lg-block">
-                        <div className="row d-flex justify-content-center">
-                            <div className="col-md-8 text-center">
+                    <div className="col-lg-6 bg-image bg-info d-none d-lg-block">
+                        <div className="row d-flex justify-content-center align-items-center h-100">
+                            <div className="col-md-8 text-center w-100 p-2">
                                 <h1 className='h3'>Gérez vos budgets en toute en efficacité</h1>
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, ducimus.</p>
                                 <div className="mt-4">
@@ -19,9 +19,9 @@ function Page() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-12 col-lg-6">
                         <div className="row justify-content-center">
-                            <div className="col-md-8 text-center">
+                            <div className="col-md-8 text-center mt-5">
                                 <div className="mb-3">
                                     <GmailConnection />
                                 </div>

@@ -2,12 +2,12 @@ import { GiMoneyStack } from "react-icons/gi"
 import { TbPigMoney } from "react-icons/tb"
 import { GiTakeMyMoney } from "react-icons/gi"
 
-function InfosTransactions() {
+function InfosBudgets() {
     return (
         <div className='container-fluid my-3'>
             <div className="row">
                 {/* 1 */}
-                <div className="col-md-4 g-3">
+                <div className="col-lg-4 g-3">
                     <div className="card">
                         <div className="card-body">
                             <div className="row d-flex justify-content-between">
@@ -23,7 +23,7 @@ function InfosTransactions() {
                     </div>
                 </div>
                 {/* 2 */}
-                <div className="col-md-4 g-3 ">
+                <div className="col-lg-4 g-3 ">
                     <div className="card">
                         <div className="card-body">
                             <div className="row d-flex justify-content-between">
@@ -39,7 +39,7 @@ function InfosTransactions() {
                     </div>
                 </div>
                 {/* 3 */}
-                <div className="col-md-4 g-3">
+                <div className="col-lg-4 g-3">
                     <div className="card">
                         <div className="card-body">
                             <div className="row d-flex justify-content-between">
@@ -59,4 +59,4 @@ function InfosTransactions() {
     )
 }
 
-export default InfosTransactions
+export default InfosBudgets
