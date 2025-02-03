@@ -6,7 +6,7 @@ import { ConnectDB } from "@/dataBase/mongooseConfig"
 
 
 export const POST = async (request: Request) => {           //Presiser toujours la méthode et si c'est post ,il faut mettre un paramettre
-    const { nom, prenom, email, password, tel } = await request.json()
+    const { nom, prenom, email, password, tel,typeConnection } = await request.json()
     try {
         const bd_response = await ConnectDB()
         if (bd_response === "bdOk") {
@@ -15,7 +15,7 @@ export const POST = async (request: Request) => {           //Presiser toujours 
             const newUser = new UsersModel({ uid, nom, prenom, email, tel, typeConnection: "standard", photo: "" })
             await newUser.save()
             return (newUser && newUser !== undefined && newUser !== "")
-                ? NextResponse.json({ message: "ok", data: { uid, nom, prenom, photo: "" } })
+                ? NextResponse.json({ message: "ok", data: { uid, nom, prenom, photo: "", typeConnection, tel } })
                 : NextResponse.json({ message: "Erreur survenue pendant la création de votre compte" })
 
         } else {

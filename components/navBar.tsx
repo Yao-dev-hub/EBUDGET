@@ -11,7 +11,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-
+import { FaUser } from "react-icons/fa";
 
 
 
@@ -23,6 +23,13 @@ function NavBar() {
 
     const [path, setPath] = useState("")
     const [user, setUser] = useState<UsersType>({})
+
+    const deconnecte = async () => {
+        setTimeout(() => {
+            localStorage.removeItem("userInfo")!
+            location.href = "/clients/users-pages/login"
+        })
+    }
 
     useEffect(() => {
         setTimeout(() => {
@@ -61,7 +68,21 @@ function NavBar() {
                                             <div>
                                                 {/* <img src={user.photo !== "" ? user.photo : "/img/user.png"} alt="user" style={{ width: "30px", height: "30px", borderRadius: "50%" }} /> */}
                                                 <NavDropdown title={user.nom} id="nom-user">
-                                                    <NavDropdown.Item href="#action/3.1" >Se deconnecter</NavDropdown.Item>
+                                                    {
+                                                        user.typeConnection ? user.typeConnection === "standard" && (
+                                                            <>
+                                                                <NavDropdown.Item href="/clients/dashbord/profilUser" ><FaUser /> profil</NavDropdown.Item>
+                                                                <NavDropdown.Item href="#action/3.1" onClick={() => deconnecte()} >Se deconnecter</NavDropdown.Item>
+                                                            </>
+                                                        ) :
+
+                                                            (
+                                                                <>
+                                                                    <NavDropdown.Item href="#action/3.1" onClick={() => deconnecte()} >Se deconnecter</NavDropdown.Item>
+                                                                </>
+                                                            )
+                                                    }
+
                                                 </NavDropdown>
                                             </div>
                                         )
@@ -83,30 +104,3 @@ export default NavBar
 
 
 
-
-// <Navbar expand="lg" className="bg-body-tertiary ">
-// <Container>
-//     <Navbar.Brand href="/"><span className="text-danger fw-bold">e</span>BUDGET</Navbar.Brand>
-//     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-//     <Navbar.Collapse id="basic-navbar-nav mb-lg-0">
-//         <Nav className="mx-auto">
-//             <Link href="/clients/dashbord/dash" className="btn btn-warning fw-bold btn-sm ">Tableau de bord</Link>
-//             <Link href="/clients/dashbord/budgets/new-budget" className=" btn btn-warning fw-bold btn-sm left-margin mx-2">Mes Budgets</Link>
-//             <Link href="/clients/dashbord/transactions" className=" btn btn-warning fw-bold btn-sm">Mes transactions</Link>
-//         </Nav>
-
-//         <Dropdown className='d-flex justify-content-center justify-content-md-start'>
-//             {
-//                 user && user !== undefined && (
-//                     <div>
-//                         {/* <img src={user.photo !== "" ? user.photo : "/img/user.png"} alt="user" style={{ width: "30px", height: "30px", borderRadius: "50%" }} /> */}
-//                         <NavDropdown title={user.nom} id="basic-nav-dropdown">
-//                             <NavDropdown.Item href="#action/3.1">Se deconnecter</NavDropdown.Item>
-//                         </NavDropdown>
-//                     </div>
-//                 )
-//             }
-//         </Dropdown>
-//     </Navbar.Collapse>
-// </Container>
-// </Navbar>

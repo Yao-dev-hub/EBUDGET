@@ -47,26 +47,29 @@ function page() {
 
     return (
         <div className='container mt-5 '>
+            <div className="row">
+                <div className="col-md-3 my-1">
+                    <AddBudget uid={uid} BudgetListFunc={BudgetListFunc} />
+                </div>
+            </div >
             {load ? (
                 <div className="row">
-                    <div className="col-lg-4 mb-3">
-                        <LoadingCard />
-                    </div>
-                    <div className="col-lg-4 mb-3">
-                        <LoadingCard />
-                    </div>
-                    <div className="col-lg-4 mb-3">
-                        <LoadingCard />
-                    </div>
+                    {budget && budget.length > 0 ? (
+                        <>
+                            {budget && budget.map((item, index) => (
+                                <div key={index} className="col-lg-4 mb-3">
+                                    <LoadingCard />
+                                </div>
+                            ))}
+                        </>
+                    ) : (
+                        <>
+                            <p className='text-center'>Chargement des données en cours...</p>
+                        </>
+                    )}
                 </div>
             ) : (
                 <>
-                    <div className="row">
-                        <div className="col-md-3 my-1">
-                            <AddBudget uid={uid} BudgetListFunc={BudgetListFunc} />
-                        </div>
-                    </div >
-
                     {budget && budget.length > 0 ? (
                         <div className="row">
                             {budget.map(item => (

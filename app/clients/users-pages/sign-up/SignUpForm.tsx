@@ -17,8 +17,9 @@ function SignUpForm() {
     const data = async () => {
         setMessage("")
         setLoad(true)
+        const typeConnection = "standard"
         const data: UsersType = {
-            nom, prenom, email, password, tel,
+            nom, prenom, email, password, tel, typeConnection
         }
         const req = await fetch("/server/users-routes/sign-up", {
             headers: { "Content-type": "application/json" },

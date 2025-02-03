@@ -19,7 +19,7 @@ function CardBudgets({ item }: ListBudgetType) {
                         <h4 className='text-center me-2 h6'>{item ? item?.emoji : "😊"}</h4>
                         <div>
                             <h4 className='h6'>{item ? item?.titre : "Titre du budget"}</h4>
-                            <p className='color-gay p-0 m-0'>{item ? item?.nbreTransaction : "0"} Transactions</p>
+                            <p className='color-gay p-0 m-0'>{item ? item?.nbreTransact : 0} Transactions</p>
                         </div>
                     </div>
                     <div>
@@ -34,13 +34,13 @@ function CardBudgets({ item }: ListBudgetType) {
                         ("500 FCFA")
                     }</p>
                     <p className='text-start color-gay'>{reste ?
-                        (reste > 1 ? `${reste.toLocaleString("fr-FR", MoneyOptions)} dépensés` : `${reste.toLocaleString("fr-FR", MoneyOptions)} dépensé`)
+                        (reste > 1 ? `${reste.toLocaleString("fr-FR", MoneyOptions)} Restants` : `${reste.toLocaleString("fr-FR", MoneyOptions)} Restant`)
                         :
                         ("100 FCFA")
                     }</p>
                 </div>
                 {/* Troisième Container */}
-                <ProgressBar now={!Number.isNaN(pourcentage) ? pourcentage : 50} label={`${pourcentage}%`} variant={pourcentage > 99 ? "danger"
+                <ProgressBar now={!Number.isNaN(pourcentage) ? pourcentage : 50} label={`${pourcentage.toFixed(2)}%`} variant={pourcentage > 99 ? "danger"
                     : pourcentage > 69 ? "warning" : "dark"} />
             </div>
         </Link>

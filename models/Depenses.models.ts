@@ -1,8 +1,11 @@
-import { Schema } from "mongoose";
+import { model, models, Schema } from "mongoose";
 
-export const DepensesModels = new Schema({
+const DepensesSchema = new Schema({
     titre: { type: String, required: true },
     montant: { type: String, required: true },
     uid: { type: String, required: true },
-    id: { type: String, required: true }
+    budgetId: { type: String, required: true },
+    date: { type: Date, required: true, default: new Date() }
 })
+
+export const DepenseModel = models.Depenses || model("Depenses", DepensesSchema)

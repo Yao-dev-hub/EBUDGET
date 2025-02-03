@@ -64,9 +64,13 @@ function LoginForm() {
                 {!load ? (
                     <button className='btn btn-primary form-control' type='submit'>Se connecter</button>
                 ) : (
-                    <div className="spinner-grow text-primary" role="status">
-                        <span className="visually-hidden">Connexion en cours...</span>
-                    </div>
+                    <>
+                        <div className="spinner-grow text-primary" role="status">
+                            <span className="visually"></span>
+                        </div><span>Connexion en cours ...</span>
+                    </>
+
+
                 )}
 
             </div>

@@ -13,12 +13,6 @@ export type BudgetType = {
     id?: string, titre: string, fond: number, emoji: string, uid: UsersType
 }
 
-<<<<<<< HEAD
-=======
-//salut
-
-
->>>>>>> 0df83235d72f350aedec4a8ded78c45eaa921c74
 export type ListBudgetType = {
     _id?: string,
     titre?: string,
@@ -27,7 +21,7 @@ export type ListBudgetType = {
     depense?: number,
     reste?: number,
     pourcentage?: number,
-    nbreTransaction?: number,
+    nbreTransact?: number,
     uid?: string,
     BudgetListFunc?: (e: ListBudgetType) => void,
     item?: ListBudgetType
@@ -46,8 +40,32 @@ export type ParamesID = {
 }
 
 export type DepenseType = {
+    _id?: string,
     titre?: string,
     montant?: string,
     uid?: string,
-    id?: string,
+    budgetId?: string,
+    date?: string,
+    budgetName?:string,
+    listTransactions?: DepenseType[],
+    setListransactions?: React.Dispatch<React.SetStateAction<DepenseType[]>>
+}
+
+export type UsersInfoUpdateType = {
+    nom?: string,
+    prenom?: string,
+    ville?: string,
+    email?: string,
+    tel?: string,
+    pays?: string,
+    profession?: string,
+    genre?: string
+}
+
+export type FormType = {
+    submitForm: (e: React.FormEvent<HTMLFormElement>) => Promise<void>,
+    montantSaisie: (e: any) => void,
+    TitreSaisie: (e: any) => void,
+    loadform: boolean,
+    formRef?: React.Ref<HTMLFormElement>
 }
