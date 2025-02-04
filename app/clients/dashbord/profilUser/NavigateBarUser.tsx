@@ -7,11 +7,13 @@ import Image from 'next/image'
 import { UsersType } from '@/Type'
 import { MdEditSquare } from "react-icons/md";
 import FormUpdateInfoUser from './FormUpdateInfoUser'
+import { IoMdCloseCircle } from 'react-icons/io'
 
 
 function NavigateBarUser() {
     const [user, setUser] = useState<UsersType>({})
     const [show, setShow] = useState(false)
+    const [checked, setChecked] = useState(false)
 
     const showForm = () => {
         setShow(!show)
@@ -20,6 +22,7 @@ function NavigateBarUser() {
     useEffect(() => {
         setUser(JSON.parse(localStorage.getItem("userInfo")!))
     }, [])
+
     return (
         <div className='container mt-3'>
 
@@ -56,15 +59,13 @@ function NavigateBarUser() {
                     }
                 </div>
             </div>
-
             <div className="row mt-5">
-                <div className="col-lg-6 ">
+                <div className="col-lg-12 d-flex bg-light justify-content-between p-1">
                     <h4>Information personnelle</h4>
-                </div>
-                <div className="col-lg-6 text-end ">
-                    <button type='button' className='btn btn-primary btn-sm rounded-5 me-2' onClick={() => showForm()}><MdEditSquare className='fs-5' />Modifier</button>
+                    <button type='button' className='btn btn-warning btn-sm' onClick={() => showForm()}><MdEditSquare className='fs-5 ' />Modifier</button>
                 </div>
             </div>
+
             {
                 !show ? (
                     <div className="row mt-5 d-md-flex justify-content-md-center text-md-center my-2">
@@ -83,11 +84,11 @@ function NavigateBarUser() {
                                             </tr>
                                             <tr>
                                                 <td className='text-start'>Genre</td>
-                                                <td>Masculin</td>
+                                                <td>{user.genre}</td>
                                             </tr>
                                             <tr>
                                                 <td className='text-start'>ville</td>
-                                                <td>Abidjan</td>
+                                                <td>{user.adresse}</td>
                                             </tr>
                                         </tbody>
                                     </Table>
@@ -97,19 +98,19 @@ function NavigateBarUser() {
                                         <tbody className='text-start'>
                                             <tr>
                                                 <td className='text-start'>Email</td>
-                                                <td>eric@gmail.com</td>
+                                                <td>{user.email}</td>
                                             </tr>
                                             <tr>
                                                 <td className='text-start'>Profession</td>
-                                                <td>Etudiant</td>
+                                                <td>{user.profession}</td>
                                             </tr>
                                             <tr>
                                                 <td className='text-start'>Telephone</td>
-                                                <td>(+225)0502010503</td>
+                                                <td>{user.tel}</td>
                                             </tr>
                                             <tr>
                                                 <td className='text-start'>Pays</td>
-                                                <td>Cote d'ivoire</td>
+                                                <td>{user.pays}</td>
                                             </tr>
                                         </tbody>
                                     </Table>
@@ -121,11 +122,10 @@ function NavigateBarUser() {
                     </div>
                 ) : (
                     <div className="row mt-5 d-md-flex justify-content-md-center text-md-center my-2">
-                        <FormUpdateInfoUser />
+                        <FormUpdateInfoUser user={user} setUser={setUser} onClick={() => showForm()} />
                     </div>
                 )
             }
-
 
         </div >
     )

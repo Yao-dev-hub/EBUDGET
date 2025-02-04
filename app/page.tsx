@@ -9,6 +9,7 @@ import 'aos/dist/aos.css';
 import "@/css/home.css"
 import { useEffect } from "react";
 import Partenaires from "@/components/WebComponents/Partenaires";
+import Temoignages from "@/components/WebComponents/temoignages";
 
 export default function Home() {
 
@@ -32,6 +33,7 @@ export default function Home() {
       </div>
       <About />
       <Services />
+      <Temoignages />
     </>
   );
 }

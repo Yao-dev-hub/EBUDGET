@@ -6,7 +6,14 @@ export type UsersType = {
     password?: string,
     tel?: string,
     photo?: string,
-    typeConnection?: string
+    typeConnection?: string,
+    pays?: string,
+    profession?: string,
+    genre?: string,
+    _id?: string,
+    adresse?: string,
+    user?:UsersType,
+    setUser?: React.Dispatch<React.SetStateAction<UsersType>>
 }
 
 export type BudgetType = {
@@ -46,21 +53,11 @@ export type DepenseType = {
     uid?: string,
     budgetId?: string,
     date?: string,
-    budgetName?:string,
+    budgetName?: string,
     listTransactions?: DepenseType[],
     setListransactions?: React.Dispatch<React.SetStateAction<DepenseType[]>>
 }
 
-export type UsersInfoUpdateType = {
-    nom?: string,
-    prenom?: string,
-    ville?: string,
-    email?: string,
-    tel?: string,
-    pays?: string,
-    profession?: string,
-    genre?: string
-}
 
 export type FormType = {
     submitForm: (e: React.FormEvent<HTMLFormElement>) => Promise<void>,

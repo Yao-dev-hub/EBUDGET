@@ -32,8 +32,8 @@ function FirstComponent() {
                     <div className="col-lg-6 text-center text-md-start">
                         <h1 className='mb-3' data-aos="fade-up" >Favorisez votre avenir financier grâce à l'innovation et à l'IA</h1>
                         {/* <h1 id="Grand_titre" className="mb-3 fw-bold">Gérez votre argent intelligemment</h1> */}
-                        <p className='mb-4 fw-bold' data-aos="fade-up" >
-                            Prenez le contrôle de votre budget avec eBudget, l'application qui vous aide à suivre vos revenus et dépenses en toute simplicité. Visualisez vos transactions en temps réel, fixez des objectifs d’épargne adaptés à vos besoins, et optimisez vos finances en quelques clics grâce à l'intelligence artificielle.
+                        <p className='mb-4 fw-semi-bold' data-aos="fade-up" >
+                            Prenez le contrôle de votre budget avec <span className='text-danger'>E.</span>BUDGET, l'application qui vous aide à suivre vos revenus et dépenses en toute simplicité. Visualisez vos transactions en temps réel, fixez des objectifs d’épargne adaptés à vos besoins, et optimisez vos finances en quelques clics grâce à l'intelligence artificielle.
                         </p>
                         <Link className='btn-dark-emphasis' href="/clients/users-pages/sign-up" data-aos="fade-down">Commencer gratuitement<FiArrowUpRight /></Link>
                     </div>

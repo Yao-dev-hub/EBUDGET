@@ -14,6 +14,10 @@
     background-color: var(--blanc-clair);
 }
 
+.bg-jaune-oeuf {
+    background-color: #fffaeb;
+}
+
 .bg-vert-nuit {
     background-color: var(--vert-de-nuit);
 }

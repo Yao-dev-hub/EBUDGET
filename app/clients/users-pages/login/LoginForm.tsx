@@ -69,8 +69,6 @@ function LoginForm() {
                             <span className="visually"></span>
                         </div><span>Connexion en cours ...</span>
                     </>
-
-
                 )}
 
             </div>

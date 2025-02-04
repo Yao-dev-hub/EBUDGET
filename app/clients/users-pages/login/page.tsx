@@ -27,7 +27,7 @@ function Page() {
                                 <p className='mb-3 color-white text-center'>- ou - </p>
                                 <LoginForm />
                                 <div className="d-flex justify-content-between my-3 text-decoration-none">
-                                    <span className='color-white'>pas encore de compte ?</span> <Link href="/clients/users-pages/sign-up" className='text-decoration-none'>Créer un compte</Link>
+                                    <span className='color-white'>Pas encore de compte ?</span> <Link href="/clients/users-pages/sign-up" className='text-decoration-none'>Créer un compte</Link>
                                 </div>
                             </div>
                         </div>

@@ -14,7 +14,7 @@ function Page() {
                                 <h1 className='h3'>Gérez vos budgets en toute en efficacité</h1>
                                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis, ducimus.</p>
                                 <div className="mt-4">
-                                    <Link className="btn btn-primary" href="/login">Se connecter</Link>
+                                    <Link className="btn btn-primary" href="/clients/users-pages/login">Se connecter</Link>
                                 </div>
                             </div>
                         </div>
@@ -28,6 +28,9 @@ function Page() {
                                 <p className='mb-3 text-muted'>- ou - </p>
                                 <h2 className='fw-bold text-center mb-4 h5'>Créer un compte</h2>
                                 <SignUpForm />
+                                <div className="d-flex justify-content-between my-3 text-decoration-none">
+                                    <span className='color-white'>Déjà membre ?</span> <Link href="/clients/users-pages/login" className='text-decoration-none'>Se connecter</Link>
+                                </div>
                             </div>
                         </div>
                     </div>

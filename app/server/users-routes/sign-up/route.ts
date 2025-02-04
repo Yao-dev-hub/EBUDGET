@@ -15,7 +15,7 @@ export const POST = async (request: Request) => {           //Presiser toujours 
             const newUser = new UsersModel({ uid, nom, prenom, email, tel, typeConnection: "standard", photo: "" })
             await newUser.save()
             return (newUser && newUser !== undefined && newUser !== "")
-                ? NextResponse.json({ message: "ok", data: { uid, nom, prenom, photo: "", typeConnection, tel } })
+                ? NextResponse.json({ message: "ok", data: newUser })
                 : NextResponse.json({ message: "Erreur survenue pendant la création de votre compte" })
 
         } else {

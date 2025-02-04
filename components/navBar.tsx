@@ -11,7 +11,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { FaUser } from "react-icons/fa";
+import { FaCircleUser } from 'react-icons/fa6';
 
 
 
@@ -71,7 +71,7 @@ function NavBar() {
                                                     {
                                                         user.typeConnection ? user.typeConnection === "standard" && (
                                                             <>
-                                                                <NavDropdown.Item href="/clients/dashbord/profilUser" ><FaUser /> profil</NavDropdown.Item>
+                                                                <NavDropdown.Item href="/clients/dashbord/profilUser" ><FaCircleUser className='me-2' /> profil</NavDropdown.Item>
                                                                 <NavDropdown.Item href="#action/3.1" onClick={() => deconnecte()} >Se deconnecter</NavDropdown.Item>
                                                             </>
                                                         ) :

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaCheckCircle, FaMoneyBillWave } from 'react-icons/fa'
+import { FaBrain, FaChartPie, FaCheckCircle, FaMoneyBillWave, FaTasks } from 'react-icons/fa'
 import SectionFonctionalite from './SectionFonctionalite'
 
 function About() {
@@ -41,7 +41,7 @@ function About() {
                     <div className="col-lg-4 mb-3" data-aos="fade-up">
                         <div className="card border-0 bg-vert-pale rounded-4 t-100">
                             <div className="card-body p-3 text-white">
-                                <div className='icons mb-3'><FaMoneyBillWave className='icons-items' /></div>
+                                <div className='icons mb-3'><FaTasks className='icons-items' /></div>
                                 <h2 className="h5 fw-bold text-white">Création et organisation simplifiées</h2>
                                 <p>
                                     Créez des budgets personnalisés grâce à l'IA. Organisez vos dépenses en quelques clics. Visualisez précisément où va votre argent. Profitez d’une interface simple, intuitive et intelligente.
@@ -52,7 +52,7 @@ function About() {
                     <div className="col-lg-4 mb-3" data-aos="fade-up">
                         <div className="card border-0 bg-vert-pale rounded-4 t-100">
                             <div className="card-body p-3 text-white">
-                                <div className='icons mb-3'><FaMoneyBillWave className='icons-items' /></div>
+                                <div className='icons mb-3'><FaChartPie className='icons-items' /></div>
                                 <h2 className="h5 fw-bold text-white">Analyse en temps réel grace à notre IA</h2>
                                 <p>
                                     Suivez vos finances à tout moment grâce à l'IA. Consultez des graphiques clairs et détaillés. Recevez des alertes intelligentes de notre IA en cas de dépassement. Gardez le contrôle total sur votre budget.
@@ -63,7 +63,7 @@ function About() {
                     <div className="col-lg-4 mb-3" data-aos="fade-up">
                         <div className="card border-0 bg-vert-pale rounded-4 t-100">
                             <div className="card-body p-3 text-white">
-                                <div className='icons mb-3'><FaMoneyBillWave className='icons-items' /></div>
+                                <div className='icons mb-3'><FaBrain className='icons-items' /></div>
                                 <h2 className="h5 fw-bold text-white">Optimisation et maîtrise des finances</h2>
                                 <p>
                                     Identifiez vos dépenses superflues grâce à l'IA. Fixez des objectifs d’épargne précis et personnalisés. Prenez des décisions financières éclairées avec l’analyse intelligente de vos habitudes. Avancez sereinement vers la stabilité financière, guidé par l'IA.

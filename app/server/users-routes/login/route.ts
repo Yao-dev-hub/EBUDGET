@@ -14,7 +14,7 @@ export const POST = async (request: Request) => {
             const uid = userInfo.user.uid
             if (uid && uid !== "") {
                 const data = await UsersModel.findOne({ uid })
-                return NextResponse.json({ message: "ok", data: { uid, nom: data.nom, prenom: data.prenom, photo: data.photo } })
+                return NextResponse.json({ message: "ok", data })
             } else {
                 return NextResponse.json({ message: "Email ou mot de passe incorrect" })
             }
